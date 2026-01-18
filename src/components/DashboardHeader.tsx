@@ -25,10 +25,22 @@ export default function DashboardHeader({
   return (
     <header className="mb-12">
       <div className="text-center mb-10">
-        <h1 className="font-display text-4xl md:text-6xl font-black tracking-widest text-white glow-text mb-4">
+        {/* David's name in handwritten neon style */}
+        <div className="mb-2">
+          <span className="neon-handwritten text-5xl md:text-7xl neon-buzz">
+            Dav
+          </span>
+          <span className="neon-handwritten text-5xl md:text-7xl neon-flicker">
+            i
+          </span>
+          <span className="neon-handwritten text-5xl md:text-7xl neon-buzz">
+            d's
+          </span>
+        </div>
+        <h1 className="font-display text-3xl md:text-5xl font-black tracking-widest text-white glow-text mb-4">
           STABLECOIN
         </h1>
-        <h2 className="font-display text-2xl md:text-3xl font-bold tracking-[0.3em] text-cyber-accent glow-text-subtle">
+        <h2 className="font-display text-xl md:text-2xl font-bold tracking-[0.3em] text-cyber-accent glow-text-subtle">
           DASHBOARD
         </h2>
         <p className="mt-4 text-gray-400 font-mono text-sm">

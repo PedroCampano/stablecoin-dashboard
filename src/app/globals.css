@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -169,5 +169,51 @@ body::before {
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 255, 136, 0.15);
+}
+
+/* Handwritten neon style for "David" */
+.neon-handwritten {
+  font-family: 'Pacifico', cursive;
+  color: #ff6ec7;
+  text-shadow: 
+    0 0 5px #ff6ec7,
+    0 0 10px #ff6ec7,
+    0 0 20px #ff6ec7,
+    0 0 40px #ff1493,
+    0 0 80px #ff1493;
+}
+
+/* Neon flicker animation for broken letter */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 5px #ff6ec7,
+      0 0 10px #ff6ec7,
+      0 0 20px #ff6ec7,
+      0 0 40px #ff1493;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+.neon-flicker {
+  animation: neon-flicker 3s infinite;
+}
+
+/* Subtle buzz effect */
+@keyframes neon-buzz {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.neon-buzz {
+  animation: neon-buzz 0.1s infinite;
 }
 
