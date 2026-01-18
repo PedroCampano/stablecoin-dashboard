@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-dark: #0a0a0f;
+  --cyber-darker: #05050a;
+  --cyber-accent: #00ff88;
+  --cyber-glow: #00ff8855;
+  --cyber-warning: #ff6b35;
+  --cyber-danger: #ff3366;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cyber-darker);
+  color: #e0e0e0;
+  font-family: 'JetBrains Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scanline effect overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 136, 0.015) 2px,
+    rgba(0, 255, 136, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+/* Glow text effect */
+.glow-text {
+  text-shadow: 
+    0 0 10px var(--cyber-accent),
+    0 0 20px var(--cyber-accent),
+    0 0 40px var(--cyber-accent);
+}
+
+.glow-text-subtle {
+  text-shadow: 0 0 10px var(--cyber-glow);
+}
+
+/* Card styling */
+.cyber-card {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.8) 0%,
+    rgba(10, 10, 15, 0.9) 100%
+  );
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--cyber-accent) 50%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* Peg status indicators */
+.peg-perfect {
+  color: var(--cyber-accent);
+  text-shadow: 0 0 8px var(--cyber-accent);
+}
+
+.peg-minor {
+  color: var(--cyber-warning);
+  text-shadow: 0 0 8px var(--cyber-warning);
+}
+
+.peg-major {
+  color: var(--cyber-danger);
+  text-shadow: 0 0 8px var(--cyber-danger);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 136, 0.5);
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 46, 0.5) 25%,
+    rgba(42, 42, 78, 0.5) 50%,
+    rgba(26, 26, 46, 0.5) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* Number transitions */
+.number-transition {
+  transition: all 0.3s ease-out;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.15);
+}
+
